@@ -1,19 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-const Pokemon = () => {
-    const [pokemon, setPokemon] = useState([]);
-
-    async function fetchPokemon() {
-        const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
-        const data = await res.json();
-        setPokemon(data.results);
-    }
-
-    useEffect(() => {
-        fetchPokemon();
-    }, []);
-
+const Pokemon = ({ pokemon }) => {
     return (
         <div className="row justify-content-center">
             {pokemon.map((pikmin) => {
